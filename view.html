@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+
+    <!-- info requerida por bootstrap-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>DEMO TP-"Prueba_Y_Error"</title>
+
+    <!-- carga del css de bootstrap con estilos predefinidos-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- carga de jQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- carga de bootstrap.js-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- include leaflet -->
+    <link rel="stylesheet" href="./leaflet/leaflet.css" />
+    <script src="./leaflet/leaflet.js"></script>
+
+    <!-- include race, runner y view -->
+    <link rel="stylesheet" type="text/css" media="screen" href="view.css" />
+    <script src="travelRequest.js"></script>
+    <script src="carDriver.js"></script>
+    <script src="view.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row" id="header">
+            <div class="col-md-6">
+                <h3>Sistema Servicio de Transporte</h3> </div>
+            <div class="col-md-3">
+            <div class="col-md-3" id="webcam"></div>
+            <div class="col-md-3" id="waterstop"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12" id="aviso"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8" id="mapid"></div>
+        <div id="conductores" style="visibility:hidden"></div>
+        <div id="formularioInicial">
+
+        <h3>Haga su Pedido</h3>
+        <form name="formulario" >
+          Direccion Origen: <input type="text" name="edad" value=""><br>
+          Direccion Destino:<input type="text" name="edad" value=""><br>
+        </form>
+
+        <h3>Preferencia de su viaje</h3>
+            <h4><u>Tiempo de espera</u></h4>
+                <form name="tiempo de espera">
+                  <input type="radio" value="ahora" name="pregunta" id="pregunta_ahora" checked> AHORA
+                  <input type="radio" value="15 minutos" name="pregunta" id="pregunta_15min"/> 15 MINUTOS
+                  <input type="radio" value="30 minutos" name="pregunta" id="pregunta_30min"/> 30 MINUTOS
+                  <input type="radio" value="45 minutos" name="pregunta" id="pregunta_45min"/> 45 MINUTOS
+                </form>
+            <h4><u>Caracteristicas del Vehiculo</u></h4>
+                Marca
+                <select id="marcaVehiculo" name="marcaVehiculo">
+                <option value="0">----------</option>
+                <option value="1">ALPA LOMEO</option>
+                <option value="2">AUDI.OS</option>
+                <option value="3">LAMBORGOTTI FASTEROSSA</option>
+                <option value="4">TOYOTATA</option>
+                <option value="5">VMW</option>
+                </select><br>
+                Modelo
+                <select id="modeloVehiculo" name="modeloVehiculo">
+                <option value="0">----------</option>
+                <option value="1">A1</option>
+                <option value="2">A2</option>
+                <option value="3">A3</option>
+                <option value="4">A4</option>
+              </select><br>
+                Color
+                <select id="colorVehiculo">
+                <option value="0">-----------</option>
+                <option value="1">MANZANA</option>
+                <option value="2">MATE COCIDO</option>
+                <option value="3">UNICORNIO</option>
+                <option value="4">AGUA</option>
+                </select>
+        <h3><button id="myBtn"> Enviar Solicitud </button></h3></div>
+        </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
