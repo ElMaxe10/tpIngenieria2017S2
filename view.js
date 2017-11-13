@@ -89,8 +89,5 @@ function bootstrap() {
       document.getElementById("formularioInicial").style.visibility='hidden';
       document.getElementById('conductores').style.visibility='visible';
     });
-
-
-}
-
+  }
 $(bootstrap);
