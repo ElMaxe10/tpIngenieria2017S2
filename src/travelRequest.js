@@ -21,8 +21,8 @@ var TravelRequest = function(name, map) {
             // Opción 2.
              carLayer.addLayer(L.circleMarker(newPosition, {
                                      radius: 7,
-                                     fillColor: "blue",
-                                     color: "red",
+                                     fillColor: "#00AA00",
+                                     color: "black",
                                      weight: 1,
                                      opacity: 1,
                                      fillOpacity: 0.3
