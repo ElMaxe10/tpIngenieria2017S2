@@ -53,6 +53,8 @@ function bootstrap() {
     // Creamos un pedido de viaje
     var travelreq = new TravelRequest("UNGS", map);
 
+    
+
     //
     var car1 = new CarDriver("Pepe", [
             {lon: -58.695290, lat: -34.524297},
