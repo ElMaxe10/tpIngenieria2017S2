@@ -33,8 +33,8 @@ function IncidentsLoader(url) {
         // Agregamos el layer al control
         map.layersControl.addOverlay(incidentLayer, "Incidents");
 
-        console.log("añadiendo WaterStops a mapa");
-        incidentListResponse.incidents.forEach(function(incident) { // recorre la lista de waterstops
+        console.log("añadiendo incidencias a mapa");
+        incidentListResponse.incidents.forEach(function(incident) { // recorre la lista de incidencias
             marker = L.circleMarker([incident.coordinate.lat, incident.coordinate.lon], {
                 radius: 5,
                 fillColor: "red",
@@ -44,7 +44,7 @@ function IncidentsLoader(url) {
                 fillOpacity: 1
             });
 
-            marker.on('click', function() { //muestra los datosde la waterstop
+            marker.on('click', function() { //muestra los datosde la incidencia
                 //$("#webcam").hide();  // saca los datos de la webcam
                 mostrarDatos(incident);
             });
