@@ -20,22 +20,22 @@ function bootstrap() {
     map.layersControl = layersControl;
 
     // Creamos un círculo con centro en la UNGS.
-    var circle = L.circle(ungsLocation, {
-        color: '#0000AA',
-        fillColor: '#0000CC',
-        fillOpacity: 0.2,
-        radius: 300
-    }).addTo(map);
+    //var circle = L.circle(ungsLocation, {
+    //    color: '#0000AA',
+    //    fillColor: '#0000CC',
+    //    fillOpacity: 0.2,
+    //    radius: 300
+    //}).addTo(map);
 
     // Creamos un polígono.
-    L.polygon([
-        L.latLng(-34.515594, -58.705654),
-        L.latLng(-34.523503, -58.714062),
-        L.latLng(-34.519177, -58.719890),
-        L.latLng(-34.511089, -58.711374),
-        L.latLng(-34.514062, -58.707909),
-        L.latLng(-34.513824, -58.707584),
-    ]).addTo(map);
+    //L.polygon([
+    //    L.latLng(-34.515594, -58.705654),
+    //    L.latLng(-34.523503, -58.714062),
+    //    L.latLng(-34.519177, -58.719890),
+    //    L.latLng(-34.511089, -58.711374),
+    //    L.latLng(-34.514062, -58.707909),
+    //    L.latLng(-34.513824, -58.707584),
+    //]).addTo(map);
 
     // Creamos un circuito.
     L.polyline([
@@ -72,7 +72,6 @@ function bootstrap() {
         ]);
     //
     travelreq.addCar(car2);
-
 
     // -----------------------------------------------------------------------
 

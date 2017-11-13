@@ -13,17 +13,20 @@ var TravelRequest = function(name, map) {
             console.log("Updating view for car driver: " + carDriver.name + "!!");
             console.log(newPosition);
 
+            carLayer.clearLayers();
+
+
             // Opción 1.
-            carLayer.addLayer(L.marker(newPosition));
+            //carLayer.addLayer(L.marker(newPosition));
             // Opción 2.
-            // carLayer.addLayer(L.circleMarker(newPosition, {
-            //                         radius: 7,
-            //                         fillColor: "#00AA00",
-            //                         color: "#DDD",
-            //                         weight: 1,
-            //                         opacity: 1,
-            //                         fillOpacity: 0.3
-            //                     }));
+             carLayer.addLayer(L.circleMarker(newPosition, {
+                                     radius: 7,
+                                     fillColor: "blue",
+                                     color: "red",
+                                     weight: 1,
+                                     opacity: 1,
+                                     fillOpacity: 0.3
+              }));
         }
 
         this.carsData.push({

@@ -8,7 +8,7 @@ var CarDriver = function(name, historyPositions) {
         var self = this;
         setTimeout(function() {
             callback(historyPositions[actualIx]);
-
+            
             actualIx += 1;
             if(actualIx < historyPositions.length) {
                 self.move(callback);
@@ -16,4 +16,3 @@ var CarDriver = function(name, historyPositions) {
         }, 1000);
     }
 };
-
