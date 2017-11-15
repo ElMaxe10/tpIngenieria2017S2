@@ -64,7 +64,7 @@ var TravelRequest = function(name, map) {
         this.driversData.forEach(function(data) {
             var driver = data.driver;
             var itemList = "<a class=\"list-group-item\"><h4 class=\"list-group-item-heading\">" + driver.name + " " + driver.surname + "</h4><p class=\"list-group-item-text\">" + driver.score + "</p></a>";
-            $("#Conductores").append(itemList);
+            $("#drivers").append(itemList);
         });
     }
 

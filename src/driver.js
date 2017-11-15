@@ -20,7 +20,7 @@ var Driver = function(id, name, surname, score) {
             indiceActual++;
             if (indiceActual < self.historyPositions.length)
                 self.travel(mapUpdaterConductor);
-        }, 250); //1000 ms -> 1 s, la function se ejecuta cada medio segundo.
+        }, 1000); //1000 ms -> 1 s, la function se ejecuta cada medio segundo.
     }
 
     this.showDetails = function() {

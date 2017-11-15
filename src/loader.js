@@ -68,7 +68,7 @@ function bootstrap() {
       document.getElementById("formularioInicial").style.visibility='hidden';
       document.getElementById('conductores').style.visibility='visible';
       travelreq.start();// START!
-      //$("#drivers").show(500); // esta linea no hacia falta porque esta en el driver.js
+      //$("#drivers").show(500); // esta linea no hacia falta porque esta en el driver.js esta linea si va.. muestra los conductores al costado. pero en formulario de conductores
     } else {
         console.log("carga incompleta");
         // un warning de bootstrap para indicar que la carga no ha finalizado

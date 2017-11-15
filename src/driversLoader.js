@@ -13,8 +13,7 @@ function DriversLoader(url) {
                 var driver = new Driver(driverD.id,
                     driverD.name,
                     driverD.surname,
-                    driverD.sponsor,
-                    driverD.surname
+                    driverD.score,
                 );
                 console.log(driver.showDetails());
                 driversArray.push(driver);
