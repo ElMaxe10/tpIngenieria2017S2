@@ -29,6 +29,7 @@ var TravelRequest = function(name, map) {
         var driverLayer = L.featureGroup().addTo(this.map); // es un featureGroup
         // porque el mismo permite bindear comportamiento a todos los elementos del layer.
         driverLayer.bindPopup(driver.showDetails()); // bindeo de un popup a todos los markers del grupo.
+
         // Agregamos el layer al control
         this.map.layersControl.addOverlay(driverLayer, driver.name);
         // funcion que dibuja al conductor en el mapa.
@@ -39,15 +40,16 @@ var TravelRequest = function(name, map) {
                 // borando los markers ya mostrados.
                 driverLayer.clearLayers();
 
-                //actualizando la posiciones del conductor en el mapa.
-                driverLayer.addLayer(L.circleMarker(newPosition, {
+                var marker = L.circleMarker(newPosition, {
                     radius: 10,
                     fillColor: "#00AA00",
                     color: "black",
                     weight: 1,
                     opacity: 1,
                     fillOpacity: 0.5
-                }));
+                });
+                //actualizando la posiciones del conductor en el mapa.
+                driverLayer.addLayer(marker);
             }
         }
 
@@ -63,16 +65,19 @@ var TravelRequest = function(name, map) {
         console.log("cargando lista de conductores length: " + this.driversData.length);
         this.driversData.forEach(function(data) {
             var driver = data.driver;
-            var itemList = "<a class=\"list-group-item\"><h4 class=\"list-group-item-heading\">" + driver.name + " " + driver.surname + "</h4><p class=\"list-group-item-text\">" + driver.score + "</p></a>";
+            var itemList = "<a class=\"list-group-item\"><button class=\"list-group-item-heading\" onClick=\"iniciar("+driver.id+")\"> " + driver.name + " " + driver.surname + "</button><p class=\"list-group-item-text\">" + "Score: "+driver.score + " Car: " + driver.descriptionCar +" "+ driver.colorCar +" "+ driver.plateNumberCar +" "+ driver.yearCar + "</p></a>";
             $("#drivers").append(itemList);
         });
     }
 
-    // toma cada uno de esos conductores que estan en driversdata y lo dibuja en el mapa
-    this.start = function() {
+    this.startTravel = function(id){
+        document.getElementById('drivers').style.visibility='hidden';
         this.driversData.forEach(function(data) {
             var driver = data.driver;
-            driver.travel(data.updater);
+            if(driver.id == id){
+                driver.travel(data.updater);
+            }
         });
     }
+
 };

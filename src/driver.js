@@ -1,8 +1,13 @@
-var Driver = function(id, name, surname, score) {
+var Driver = function(id, name, surname, score, idCar, description, color, plateNumber, year) {
     this.id = id;
     this.name = name;
     this.surname = surname;
     this.score = score;
+    this.idCar = idCar;
+    this.descriptionCar = description;
+    this.colorCar = color;
+    this.plateNumberCar = plateNumber;
+    this.yearCar = year;
     this.historyPositions = [];
     this.addPosition = function(lat, lon) {
         this.historyPositions.push(new Position(lat, lon));
@@ -24,6 +29,6 @@ var Driver = function(id, name, surname, score) {
     }
 
     this.showDetails = function() {
-        return name + " " + surname + " score: " + score;
+        return name + " " + surname + " score: " + score + " Car: "+ this.descriptionCar + " " + this.colorCar + " " + this.plateNumberCar + " " + this.yearCar;
     }
 };

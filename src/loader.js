@@ -53,10 +53,10 @@ function bootstrap() {
 
   //----------------------------------------------------------------------------
 
-  // Creamos un marker sobre la UNGS.
-//  console.log("creando Maker sobre UNGS");
-//  var ungsMarker = L.marker(ungsLocation);
-//  ungsMarker.addTo(map);
+  //Creamos un marker sobre la UNGS.
+  console.log("creando Maker sobre UNGS");
+  var ungsMarker = L.marker(ungsLocation);
+  ungsMarker.addTo(map);
 
   //----------------------------------------------------------------------------
 
@@ -66,8 +66,8 @@ function bootstrap() {
     console.log("se hizo click en enviar solicitud");
     if (cargaFinalizada()) {
       document.getElementById("formularioInicial").style.visibility='hidden';
-      document.getElementById('conductores').style.visibility='visible';
-      travelreq.start();// START!
+      document.getElementById('drivers').style.visibility='visible';
+      //travelreq.start();// START! va en otro lado
       //$("#drivers").show(500); // esta linea no hacia falta porque esta en el driver.js esta linea si va.. muestra los conductores al costado. pero en formulario de conductores
     } else {
         console.log("carga incompleta");
@@ -88,7 +88,7 @@ function bootstrap() {
 
   //creamos el viaje, los conductores, las posiciones y los dibujamos
   console.log("creando Viaje");
-  var travelreq = new TravelRequest("Pedido a ungs", map);
+  travelreq = new TravelRequest("Pedido a ungs", map);
 
   //creamos los conductores y las posiciones
   console.log("creando Driversloader");
@@ -100,13 +100,24 @@ function bootstrap() {
   console.log("loadDrivers");
   driversLoader.loadDriversTo(travelreq, positionsLoader);
 
+var incidenciasTypes = new incidentTypes(incidentstypesSource);
+  incidenciasTypes.requestIncidencias;
+
   //creamos y cargamos las incidencias
   console.log("creando incidentsLoader");
   var incidentsLoader = new IncidentsLoader(incidentsSource);
+
+  
   console.log("loadIncidents");
-  incidentsLoader.loadIncidents(map); // llama a la funcion loadIncidents de incidentsSource.js
+  incidentsLoader.loadIncidents(map,incidenciasTypes); // llama a la funcion loadIncidents de incidentsSource.js
 
   //----------------------------------------------------------------------------
 
 }
+
+function iniciar(id)
+  {
+    travelreq.startTravel(id);
+  }
+
 $(bootstrap);

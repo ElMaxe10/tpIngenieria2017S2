@@ -3,12 +3,14 @@ function IncidentsLoader(url) {
   var latlngs=[];
   this.finishedLoad= false;
 
-  this.loadIncidents= function(map){
+  this.loadIncidents= function(map,types){
 
     //modifico el html para mostrar la info de la incidencia
     function mostrarDatos(incident){
-      incident= "<h3> incident " +
-        incident.id +
+      var tipo = types.getTipo(incident.type);
+      console.log(tipo);
+      incident = "<h3> incident " +
+        tipo.description +
         "</small>" +
         "</h3>";
       $("#incident").hide();
@@ -45,17 +47,24 @@ function IncidentsLoader(url) {
             });
 
             marker.on('click', function() { //muestra los datosde la incidencia
-                //$("#webcam").hide();  // saca los datos de la webcam
+
                 mostrarDatos(incident);
+                var tipo = types.getTipo(incident.type);
+                //generamos el popup para que se muestre al hacer clik sobre la incidencia.
+                incidentLayer.bindPopup(tipo.description + " Delay: " + tipo.delay);
             });
             incidentLayer.addLayer(marker);
         });
         self.finishedLoad = true;
     }
 
+
+
+
     console.log("ejecutando request sobre url: " + url);
     requestJSON(url, cargarIncidents, this);
 
 
   }
+
 }
