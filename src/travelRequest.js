@@ -33,20 +33,23 @@ var TravelRequest = function(name, map) {
         // Agregamos el layer al control
         this.map.layersControl.addOverlay(driverLayer, driver.name);
         // funcion que dibuja al conductor en el mapa.
-        var updater = function(newPosition) {
+        var updater = function(newPosition, color) {
+          console.log(color);
             if (typeof newPosition != "undefined") {
                 console.log("Updating view for driver: " + driver.name + "!!");
                 console.log(newPosition);
-                // borando los markers ya mostrados.
+
+                // borrando los markers ya mostrados.
                 driverLayer.clearLayers();
 
                 var marker = L.circleMarker(newPosition, {
                     radius: 10,
-                    fillColor: "#00AA00",
+                    fillColor:""+color,
                     color: "black",
                     weight: 1,
-                    opacity: 1,
-                    fillOpacity: 0.5
+                    opacity: 100,
+                    fillOpacity: 100
+
                 });
                 //actualizando la posiciones del conductor en el mapa.
                 driverLayer.addLayer(marker);
@@ -65,7 +68,7 @@ var TravelRequest = function(name, map) {
         console.log("cargando lista de conductores length: " + this.driversData.length);
         this.driversData.forEach(function(data) {
             var driver = data.driver;
-            var itemList = "<a class=\"list-group-item\"><button class=\"list-group-item-heading\" onClick=\"iniciar("+driver.id+")\"> " + driver.name + " " + driver.surname + "</button><p class=\"list-group-item-text\">" + "Score: "+driver.score + " Car: " + driver.descriptionCar +" "+ driver.colorCar +" "+ driver.plateNumberCar +" "+ driver.yearCar + "</p></a>";
+            var itemList = "<a class=\"list-group-item\"><button class=\"list-group-item-heading\" onClick=\"iniciar("+driver.id+")\"> " + driver.name + " " + driver.surname + "<p class=\"list-group-item-text\">" + "Score: "+driver.score + " Car: " + driver.descriptionCar +" Color: "+ driver.colorCar +" Plate number: "+ driver.plateNumberCar +" Year: "+ driver.yearCar + "</p></a</button>";
             $("#drivers").append(itemList);
         });
     }

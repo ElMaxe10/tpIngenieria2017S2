@@ -10,7 +10,6 @@ function DriversLoader(url) {
             console.log("generando array de conductores:");
             driversData.forEach(function(driverD) {
                 // creamos un objeto driver porque el mismo tiene comportamiento que no viene en el json.
-                console.log(driverD.car.color);
                 var driver = new Driver(driverD.id,
                     driverD.name,
                     driverD.surname,

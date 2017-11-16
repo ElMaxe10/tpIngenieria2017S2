@@ -20,8 +20,9 @@ var Driver = function(id, name, surname, score, idCar, description, color, plate
     //ejecutando la function callback pasada como parametro
     this.travel = function(mapUpdaterConductor) {
         var self = this;
+        colorC = this.colorCar;
         setTimeout(function() {
-            mapUpdaterConductor(self.historyPositions[indiceActual]);
+            mapUpdaterConductor(self.historyPositions[indiceActual], colorC);
             indiceActual++;
             if (indiceActual < self.historyPositions.length)
                 self.travel(mapUpdaterConductor);
