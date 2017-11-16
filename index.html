@@ -38,11 +38,74 @@
 
 </head>
 
+
 <body>
+		<h1><center>Sistema Servicio de Transporte</center></h1>
+		  <div class="contenedor" id="contenedor">
+				  <div class="derecha" id="derecha" >
+						<div id="mapid" ></div>
+					</div>
+
+					<div class="izquierda" id="izquierda">
+
+
+
+              <div id="formularioInicial">
+
+              <h3>Haga su Pedido</h3>
+              <form name="formulario" >
+                Direccion Origen: <input type="text"value=""><br>
+                Direccion Destino:<input type="text"value=""><br>
+              </form>
+
+              <h3>Preferencia de su viaje</h3>
+                  <h4><u>Tiempo de espera</u></h4>
+                      <form name="tiempo de espera">
+                        <input type="radio" value="ahora" name="pregunta" id="pregunta_ahora" checked> AHORA
+                        <input type="radio" value="15 minutos" name="pregunta" id="pregunta_15min"/> 15 MINUTOS
+                        <input type="radio" value="30 minutos" name="pregunta" id="pregunta_30min"/> 30 MINUTOS
+                        <input type="radio" value="45 minutos" name="pregunta" id="pregunta_45min"/> 45 MINUTOS
+                      </form>
+                  <h4><u>Caracteristicas del Vehiculo</u></h4>
+                      Marca
+                      <select id="marcaVehiculo" name="marcaVehiculo">
+                      <option value="0">----------</option>
+                      <option value="1">ALPA LOMEO</option>
+                      <option value="2">AUDI.OS</option>
+                      <option value="3">LAMBORGOTTI FASTEROSSA</option>
+                      <option value="4">TOYOTATA</option>
+                      <option value="5">VMW</option>
+                      </select><br>
+                      Modelo
+                      <select id="modeloVehiculo" name="modeloVehiculo">
+                      <option value="0">----------</option>
+                      <option value="1">A1</option>
+                      <option value="2">A2</option>
+                      <option value="3">A3</option>
+                      <option value="4">A4</option>
+                    </select><br>
+                      Color
+                      <select id="colorVehiculo">
+                      <option value="0">-----------</option>
+                      <option value="1">MANZANA</option>
+                      <option value="2">MATE COCIDO</option>
+                      <option value="3">UNICORNIO</option>
+                      <option value="4">AGUA</option>
+                      </select>
+
+              <h3><button id="myBtn"> Enviar Solicitud </button></h3></div>
+
+              <div id="drivers" style="visibility:hidden"></div>
+					</div>
+			</div>
+	</body>
+<!--
+<body>
+  <h1><center>Sistema Servicio de Transporte</center></h1>
     <div class="container">
         <div class="row" id="header">
             <div class="col-md-6">
-                <h3>Sistema Servicio de Transporte</h3> </div>
+                <h3></h3> </div>
             <div class="col-md-3" id="incident"></div>
         </div>
         <div class="row">
@@ -102,5 +165,6 @@
         </div>
     </div>
 </body>
+-->
 
 </html>

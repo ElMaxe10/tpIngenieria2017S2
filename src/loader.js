@@ -107,7 +107,7 @@ var incidenciasTypes = new incidentTypes(incidentstypesSource);
   console.log("creando incidentsLoader");
   var incidentsLoader = new IncidentsLoader(incidentsSource);
 
-  
+
   console.log("loadIncidents");
   incidentsLoader.loadIncidents(map,incidenciasTypes); // llama a la funcion loadIncidents de incidentsSource.js
 
@@ -118,6 +118,8 @@ var incidenciasTypes = new incidentTypes(incidentstypesSource);
 function iniciar(id)
   {
     travelreq.startTravel(id);
+    document.getElementById("izquierda").style.width='0%';
+    document.getElementById("derecha").style.width='100%';
   }
 
 $(bootstrap);

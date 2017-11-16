@@ -1,4 +1,10 @@
+
+
+
 body {
+margin: 10px;
+padding: 0;
+background-color: #ADD2EC;
 }
 
 #header{
@@ -6,8 +12,30 @@ body {
 }
 
 #mapid {
-    height: 75vh;
-    float: right;
+		height: 100%;
+    width: 100%;
+}
+
+#contenedor {
+	margin: 0 auto;
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	border:1px solid #000000;
+}
+
+#izquierda{
+overflow:scroll;
+	width:35%;
+	height: 100%;
+  background-color:white;
+	float: left;
+}
+
+#derecha{
+	width:65%;
+	height: 100%;
+	float: right;
 }
 
 #myBtn {
@@ -28,7 +56,15 @@ body {
     color: white;
 }
 
-#conductores {
-  font: 150% sans-serif;
-  float: left;
+#drivers{
+  position: relative;
+   top: 10px;
+   left: 10px;
+}
+
+#formularioInicial{
+
+  position: absolute;
+   top: 10px;
+   left: 10px;
 }
