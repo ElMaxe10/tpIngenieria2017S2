@@ -1,4 +1,4 @@
-var TravelRequest = function(name, map) {
+  var TravelRequest = function(name, map) {
     this.name = name; // nombre de la carrera
     this.map = map; // mapa de la carrera
     this.driversData = []; //arreglo de conductores, aca se agregan instancias de driver.

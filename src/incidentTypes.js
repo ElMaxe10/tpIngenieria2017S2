@@ -1,10 +1,8 @@
-function incidentTypes(url)
-{
-	this.url=url;
+function incidentTypes(url){
+	this.url= url;
 	var incidencias=[];
 
 	function cargarIncidentsTypes(response){
-
 		for(i=0;i<response.incidenttypes.length;i++){
 			var incident=response.incidenttypes[i]
 			incidencias.push(new IncidentType(incident.id,incident.description,incident.delay));
@@ -21,6 +19,6 @@ function incidentTypes(url)
 		}
 	}
 
-	this.requestIncidencias=requestJSON(url,cargarIncidentsTypes,this);
+	this.requestIncidencias= requestJSON(url,cargarIncidentsTypes,this);
 
 }
