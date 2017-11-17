@@ -27,7 +27,7 @@ function bootstrap() {
   var ungsLocation = [-34.5221554, -58.7000067];
 
   // Creación del componente mapa de Leaflet.
-  var map = L.map("mapid").setView(ungsLocation, 15);
+  var map = L.map("mapid").setView(ungsLocation, 14);
 
   // Agregamos los Layers de OpenStreetMap.
   var baseLayer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
@@ -41,15 +41,6 @@ function bootstrap() {
   layersControl.addTo(map);
   // hack:
   map.layersControl = layersControl;
-
-  // Creamos un circuito.
-//  L.polyline([
-//      L.latLng(-34.524309,-58.695315),
-//      L.latLng(-34.521865, -58.698213),
-//      L.latLng(-34.520437, -58.699889),
-//      L.latLng(-34.522388, -58.701957),
-//      L.latLng(-34.523579, -58.700350)
-//  ], {color: 'red'}).addTo(map);
 
   //----------------------------------------------------------------------------
 
@@ -65,10 +56,10 @@ function bootstrap() {
   $("#myBtn").click(function(){
     console.log("se hizo click en enviar solicitud");
     if (cargaFinalizada()) {
-      document.getElementById("formularioInicial").style.visibility='hidden';
       document.getElementById('drivers').style.visibility='visible';
-      //travelreq.start();// START! va en otro lado
-      //$("#drivers").show(500); // esta linea no hacia falta porque esta en el driver.js esta linea si va.. muestra los conductores al costado. pero en formulario de conductores
+      document.getElementById("formularioInicial").style.visibility='hidden';
+
+
     } else {
         console.log("carga incompleta");
         // un warning de bootstrap para indicar que la carga no ha finalizado
@@ -86,7 +77,7 @@ function bootstrap() {
 
   //----------------------------------------------------------------------------
 
-  //creamos el viaje, los conductores, las posiciones y los dibujamos
+  //creamos el viaje
   console.log("creando Viaje");
   travelreq = new TravelRequest("Pedido a ungs", map);
 
@@ -100,26 +91,24 @@ function bootstrap() {
   console.log("loadDrivers");
   driversLoader.loadDriversTo(travelreq, positionsLoader);
 
-var incidenciasTypes = new incidentTypes(incidentstypesSource);
+  var incidenciasTypes = new incidentTypes(incidentstypesSource);
   incidenciasTypes.requestIncidencias;
 
   //creamos y cargamos las incidencias
   console.log("creando incidentsLoader");
   var incidentsLoader = new IncidentsLoader(incidentsSource);
 
-
   console.log("loadIncidents");
-  incidentsLoader.loadIncidents(map,incidenciasTypes); // llama a la funcion loadIncidents de incidentsSource.js
+  incidentsLoader.loadIncidents(map, incidenciasTypes); // llama a la funcion loadIncidents de incidentsSource.js
 
   //----------------------------------------------------------------------------
 
 }
 
-function iniciar(id)
-  {
-    travelreq.startTravel(id);
-    document.getElementById("izquierda").style.width='0%';
-    document.getElementById("derecha").style.width='100%';
-  }
+function iniciar(id){
+  travelreq.startTravel(id);
+  document.getElementById("izquierda").style.width='0%';
+  document.getElementById("derecha").style.width='100%';
+}
 
 $(bootstrap);

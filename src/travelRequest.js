@@ -10,7 +10,6 @@
         this.driversData.forEach(function(data) {
             var driver = data.driver;
             if (driver.id == driverPosition.id) {
-
                 driverPosition.positions.forEach(function(position) {
                     driver.addPosition(position.lat, position.lon);
                 });
@@ -25,8 +24,8 @@
     }
 
     this.addDriver = function(driver) {
-        // Creamos el layer en el mapa para ese conductor
-        var driverLayer = L.featureGroup().addTo(this.map); // es un featureGroup
+      // Creamos el layer en el mapa para ese conductor
+        var driverLayer = L.featureGroup().addTo(map);
         // porque el mismo permite bindear comportamiento a todos los elementos del layer.
         driverLayer.bindPopup(driver.showDetails()); // bindeo de un popup a todos los markers del grupo.
 
@@ -39,20 +38,33 @@
                 console.log("Updating view for driver: " + driver.name + "!!");
                 console.log(newPosition);
 
-                // borrando los markers ya mostrados.
+                // borrando el auto ya mostrado.
                 driverLayer.clearLayers();
+
+                var auto= "./imagenes/auto.png";
+
+                var myIcon = L.icon({
+                  iconUrl: './imagenes/auto.png',
+                  iconSize: [38, 95],
+                  iconAnchor: [22, 94],
+                  popupAnchor: [-3, -76],
+                  shadowUrl: './imagenes/auto.png',
+                  shadowSize: [68, 95],
+                  shadowAnchor: [22, 94]
+                });
 
                 var marker = L.circleMarker(newPosition, {
                     radius: 10,
-                    fillColor:""+color,
+                    fillColor:"" + color,
                     color: "black",
                     weight: 1,
                     opacity: 100,
                     fillOpacity: 100
-
                 });
-                //actualizando la posiciones del conductor en el mapa.
+
+                // dibujando el auto en el mapa
                 driverLayer.addLayer(marker);
+                //driverLayer.createIcon(myIcon);
             }
         }
 
@@ -74,7 +86,7 @@
     }
 
     this.startTravel = function(id){
-        document.getElementById('drivers').style.visibility='hidden';
+        
         this.driversData.forEach(function(data) {
             var driver = data.driver;
             if(driver.id == id){
